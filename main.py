@@ -1,5 +1,7 @@
 # This is a sample Python script.
-from Character import Character
+import os
+
+from game import Game
 
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -13,17 +15,10 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    start_charasteristics = {
-        'constitution': 10,
-        'strength': 15,
-        'dexterity': 4,
-        'intelligence': 19,
-        'wisdom': 0,
-        'spirit': 0,
-        'charisma': 0
-    }
-    character = Character(start_charasteristics)
+    players_folder_path = os.path.dirname(__file__) + \
+                          f'{os.sep}resources{os.sep}players{os.sep}'
+    game = Game(players_data_path_list=[players_folder_path+'draft.json',
+                                        players_folder_path+'montgomery.json'])
     print('')
-
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

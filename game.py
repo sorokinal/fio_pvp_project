@@ -1,28 +1,19 @@
-from characteristics.Dexterity import Dexterity
-from characteristics.Intelligence import Intelligence
-from characteristics.Strength import Strength
+import json
+
+from character import Character
 
 
 class Game:
-    hits: int = 0
-    determination: int = 0
-    constitution: int = 0
-    strength: Strength = None
-    dexterity: Dexterity = None
-    intelligence: Intelligence = None
-    # wisdom: Wisdom = None
-    # spirit: Spirit = None
-    # charisma: Charisma = None
+    characters: list = []
 
-    def __init__(self, start_charasteristics: dict):
-        self.hits = start_charasteristics['constitution']*10
-        self.constitution = start_charasteristics['constitution']
-        self.strength = Strength(start_charasteristics['strength'])
-        self.dexterity = Dexterity(start_charasteristics['dexterity'])
-        self.intelligence = Intelligence(start_charasteristics['intelligence'])
+    def __init__(self, players_data_path_list: []):
+        print("Hi, Mthrfther! Let's start the game!")
+        self.add_characters_data(players_data_path_list)
 
-
-
-
-
+    def add_characters_data(self, players_data_path_list: []):
+        for path in players_data_path_list:
+            file = open(path)
+            character_data = json.load(file)
+            self.characters.append(Character(character_data))
+        return character_data
 

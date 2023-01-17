@@ -1,4 +1,4 @@
-from Characteristic import Characteristic
+from characteristics.characteristic import Characteristic
 
 
 class Dexterity(Characteristic):

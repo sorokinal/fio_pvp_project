@@ -1,24 +1,15 @@
-from Character import Character
-from turn.Action import Action
-from characteristics.Dexterity import Dexterity
-from characteristics.Intelligence import Intelligence
-from characteristics.Strength import Strength
+from character import Character
+from turn.action import MainAction
+from turn.side_action import SideAction
 
 
 class Turn:
     player: Character = None
-    available_actions: list = [Action(), Action(), Action()]
-    used_actions: list = []
+    available_actions: list = []
+    turn_list: list = []
 
-    def __init__(self, start_charasteristics: dict):
-        self.hits = start_charasteristics['constitution']*10
-        self.constitution = start_charasteristics['constitution']
-        self.strength = Strength(start_charasteristics['strength'])
-        self.dexterity = Dexterity(start_charasteristics['dexterity'])
-        self.intelligence = Intelligence(start_charasteristics['intelligence'])
-
-
-
-
-
-
+    def __init__(self, player):
+        self.player = player
+        self.available_actions = [MainAction(player),
+                                  MainAction(player),
+                                  SideAction(player)]

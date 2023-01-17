@@ -1,0 +1,10 @@
+{
+        "name": "Montgomery",
+        "constitution": 10,
+        "strength": 12,
+        "dexterity": 16,
+        "intelligence": 20,
+        "wisdom": 18,
+        "spirit": 10,
+        "charisma": 15
+    }

@@ -1,6 +1,6 @@
 import math
 
-from Characteristic import Characteristic
+from characteristics.characteristic import Characteristic
 
 
 class Strength(Characteristic):

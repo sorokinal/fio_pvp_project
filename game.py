@@ -24,7 +24,7 @@ class Game:
     def check_players_turn(self):
         """сук лень"""
 
-    def check_death_players(self):
+    def kick_death_players(self):
         for pers in self.characters:
             if pers.hits <= 0:
                 self.characters.remove(pers)

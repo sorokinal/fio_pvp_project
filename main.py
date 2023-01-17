@@ -14,5 +14,6 @@ if __name__ == '__main__':
     while not game.check_for_winner():
         for player in game.characters:
             turn = Turn(player)
-
+            game.kick_death_players()
     print('The battle is over.')
+

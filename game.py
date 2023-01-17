@@ -1,9 +1,9 @@
-from Dexterity import Dexterity
-from Intelligence import Intelligence
-from Strength import Strength
+from characteristics.Dexterity import Dexterity
+from characteristics.Intelligence import Intelligence
+from characteristics.Strength import Strength
 
 
-class Character:
+class Game:
     hits: int = 0
     determination: int = 0
     constitution: int = 0

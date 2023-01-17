@@ -11,11 +11,13 @@ class Character:
     strength: Strength = None
     dexterity: Dexterity = None
     intelligence: Intelligence = None
+    turn: int = 1
     # wisdom: Wisdom = None
     # spirit: Spirit = None
     # charisma: Charisma = None
 
     def __init__(self, start_data: dict):
+        self.turn = start_data['turn']
         self.name = start_data['name']
         self.hits = start_data['constitution'] * 10
         self.constitution = start_data['constitution']

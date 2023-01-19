@@ -11,25 +11,26 @@ class Wisdom(Characteristic):
     5: 'charms_of_bane'
   }
 
-  enchantment: int = 0
+    enchantment: int = 0
 
-  def update_enchantment(self, items: int):
-      self.update_enchantment += items
+    def update_enchantment(self, items: int):
+        self.update_enchantment += items
 
-  def magic_cuts (self, chararacter: Character, goal: Character):
-      character.additional_attack_damage += math.floor(self.current_mode/2)
-      self.update_enchantment += 1
+
+    
+    def magic_cuts (self, chararacter: Character, goal: Character):
+        character.additional_attack_damage += math.floor(self.current_mode/2)
+        self.update_enchantment(1)
     # Волшебные порезы (М1) - Атаки по Цели усиливаются на 1/2 Мод. Мудрости до конца боя, даёт 1 Зачарование (М3).
 
 
 
-  def magic_disease (self, chararacter: Character, goals: list):
+    def magic_disease (self, chararacter: Character, goals: list):
         accessible_goals_count = math.floor(self.current_mode/2)
             if len(goals) == accessible_goals_count:
                 for goal in goals:
                     character.current_attacks[attack] +=1
                     character.current_attacks[-1].goal = goal
-                self.update_enchantment += 1
 
             elif len(goals) > accessible_goals_count:
                 print(f'Not enough wisdom mode for {len(goals)} goals')
@@ -42,7 +43,6 @@ class Wisdom(Characteristic):
                     for goal in goals:
                         character.current_attacks[attack] +=1
                         character.current_attacks[-1].goal = goal
-                    self.update_enchantment += 2
 
                 elif answer == '0':
                     print('Reaim the spell')
@@ -50,11 +50,12 @@ class Wisdom(Characteristic):
 
                 else:
                     answer = input('Your answer isn´t recognized, repeat it')
+        self.update_enchantment(2)
     # **Магическая болезнь (М2)** - Отнимает Хиты в размере Модификатора Мудрости у количества Целей, равного половине Модификатора Мудрости, даёт два Зачарования.
 
 
 
-  def enchantment(self, character: Character):
+    def enchantment(self, character: Character):
         class Spellcasting(SideAction):
             spell_total_time = 0
             spell_current_time = 0
@@ -80,8 +81,7 @@ class Wisdom(Characteristic):
             def spell_cast (self, self.enchantment):
                 'use self.spell_effects[self.enchantment]'
 
-        self.update_enchantment(self, enchantment)
-            self.enchantment += enchantment
+
     # **Зачарование (М3) (Пассивное) -** Владелец может отдельным Действием объявить от 1 до 7 Раундов Подготовки. Каждый ход Подготовки даёт 1 Зачарования. По окончанию Подготовки или достижения 7 Зачарования, первое Умение Владельца Зачаровывается:
     #  - **1** - Даёт 10 Защиты Владельцу.
     #  - **2** - Владелец совершает дополнительную Атаку.
@@ -93,12 +93,29 @@ class Wisdom(Characteristic):
 
 
 
-  def enchanted_barrier(self, character: Character, goal: Character):
+    def enchanted_barrier(self, character: Character, goal: Character):
+        print(self.defence_list)
+        print('You have ' + str(math.floor(self.current_mode/3)) + 'available spellblocks. Which spells would you like to block?')
+        self.spell_block_numb = int(math.floor(self.current_mode/3))
+        for spell in defence_list:
+            answer: str = '?'
+            while answer != '1' or '0':
+                input('You want to block' + defence_list[spell] + '? Y(1)/N(0)')
+                if answer == '1':
+                    defence_list.pop(spell)
+                    self.spell_block_numb -= 1
+                elif answer == '0':
+                    continue
+                else:
+                    print('Answer unrecognized. Repeat')
+        self.update_enchantment(3)
     'Blocks 1/3 wisdom mode Skills for the goal, grants +3 enchantment'
     '**Заколдованный барьер (М4)** - Блокирует количество Умений по Цели, равное трети Модификатора Мудрости, даёт три Зачарования.'
 
 
 
     def charms_of_bane(self, character: Character, goal: Character):
+        goal.wisdom.update_current_value(-int(self.current_mode/3))
+        self.update_enchantment(4)
     'Goal´s wisdom is lowed by 1/2 widom mode, grants +4 enchantment'
     '**Чары проклятия (М5)** - Снижает Мудрость Цели в размере половины Модификатора Мудрости плюс Зачарование, даёт четыре Зачарования.'

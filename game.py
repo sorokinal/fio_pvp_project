@@ -2,14 +2,13 @@ import json
 from typing import List
 
 from character import Character
-from turn.turn import Turn
 
 
 class Game:
     characters: List[Character] = []
 
     def __init__(self, players_data_path_list: []):
-        print("Hi, Mthrfther! Let's start the game!")
+        print("Hi, Mthrfckers! Let's start the game!")
         self.add_players(players_data_path_list)
 
     def add_players(self, players_data_path_list: []):
@@ -19,7 +18,7 @@ class Game:
             file = open(path)
             character_data = json.load(file)
             self.characters.append(Character(character_data))
-        return character_data
+
 
     def check_players_turn(self):
         """сук лень"""
@@ -33,6 +32,4 @@ class Game:
         if len(self.characters) == 1:
             print(f'{self.characters[0].name} WIN!!!')
             return True
-        else:
-            return False
-
+        return False

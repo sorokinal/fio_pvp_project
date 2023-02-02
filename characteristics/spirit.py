@@ -1,5 +1,4 @@
-import math
-
+# -*- coding: utf-8 -*-
 from characteristics.characteristic import Characteristic
 
 

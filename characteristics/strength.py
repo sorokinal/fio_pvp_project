@@ -1,5 +1,4 @@
-import math
-
+# -*- coding: utf-8 -*-
 from characteristics.characteristic import Characteristic
 
 
@@ -14,7 +13,7 @@ class Strength(Characteristic):
     fury:  int = 0
 
     def update_fury(self, items: int):
-        self.update_fury += items
+        self.fury += items
 
     # def lightning_strike(self, character: Character):
     #     character.additional_attac_action += 1
@@ -50,6 +49,3 @@ class Strength(Characteristic):
     #     else:
     #         print(f'You have {accessible_goals_count-goals} attacks for '
     #               f'other goals')
-
-
-

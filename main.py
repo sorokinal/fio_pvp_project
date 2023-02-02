@@ -16,4 +16,3 @@ if __name__ == '__main__':
             turn = Turn(player)
             game.kick_death_players()
     print('The battle is over.')
-

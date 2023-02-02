@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from characteristics.characteristic import Characteristic
 
 
@@ -11,4 +12,3 @@ class Dexterity(Characteristic):
     }
     skills: dict = {}
     crit:  int = 0
-

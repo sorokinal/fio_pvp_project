@@ -18,10 +18,3 @@ class Characteristic:
 
     def update_current_mode(self, items: int):
         self.current_mode += items
-
-
-
-
-
-
-

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from characteristics.characteristic import Characteristic
 
 
@@ -11,4 +12,3 @@ class Intelligence(Characteristic):
     }
     skills: dict = {}
     progress:  int = 0
-

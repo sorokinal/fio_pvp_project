@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# pylint: disable=too-few-public-methods
 from characteristics.dexterity import Dexterity
 from characteristics.intelligence import Intelligence
 from characteristics.strength import Strength
@@ -24,9 +26,3 @@ class Character:
         self.strength = Strength(start_data['strength'])
         self.dexterity = Dexterity(start_data['dexterity'])
         self.intelligence = Intelligence(start_data['intelligence'])
-
-
-
-
-
-

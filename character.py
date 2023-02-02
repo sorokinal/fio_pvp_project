@@ -3,6 +3,7 @@
 from characteristics.dexterity import Dexterity
 from characteristics.intelligence import Intelligence
 from characteristics.strength import Strength
+from characteristics.wisdom import Wisdom
 
 
 class Character:
@@ -14,7 +15,7 @@ class Character:
     dexterity: Dexterity = None
     intelligence: Intelligence = None
     turn: int = 1
-    # wisdom: Wisdom = None
+    wisdom: Wisdom = None
     # spirit: Spirit = None
     # charisma: Charisma = None
 

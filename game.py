@@ -2,7 +2,6 @@
 import json
 from typing import List
 
-
 from character import Character
 
 
@@ -20,7 +19,6 @@ class Game:
             file = open(path)
             character_data = json.load(file)
             self.characters.append(Character(character_data))
-
 
     def check_players_turn(self):
         """сук лень"""

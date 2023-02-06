@@ -13,7 +13,9 @@ class Turn:
 
     def __init__(self, game, player: Character):
         self.player = player
-        self.available_actions = [Action(player)]
+        self.available_actions = [Action(player),
+                                  Action(player),
+                                  Action(player)]
         game.turn_counter += 1
         print(f'Ход {game.turn_counter}\n'
               f'Игрок: {player.name}')

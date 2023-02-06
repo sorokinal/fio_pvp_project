@@ -3,6 +3,7 @@ from characteristics.characteristic import Characteristic
 
 
 class Dexterity(Characteristic):
+    NAME = 'Ловкость'
     BASE_SKILLS:  dict = {
         1: 'fast_dodge',
         2: 'dexterous_tripping',

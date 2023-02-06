@@ -3,6 +3,7 @@ from characteristics.characteristic import Characteristic
 
 
 class Spirit(Characteristic):
+    NAME = 'Дух'
     BASE_SKILLS:  dict = {
         1: 'effort_of_will',
         2: 'power_of_ideals',

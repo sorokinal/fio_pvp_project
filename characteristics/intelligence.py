@@ -3,6 +3,7 @@ from characteristics.characteristic import Characteristic
 
 
 class Intelligence(Characteristic):
+    NAME='Интеллект'
     BASE_SKILLS:  dict = {
         1: 'mental_pain',
         2: 'intellect_pressure',

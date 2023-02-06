@@ -3,25 +3,32 @@
 from typing import List
 
 from character import Character
+from data_input_helper import input_action_data
 from turn.action.action import Action
-from turn.action.main_action import MainAction
-from turn.action.side_action import SideAction
 
 
 class Turn:
     player: Character = None
     available_actions: List[Action]
-    turn_counter = 0
 
-    def __init__(self, player: Character):
+    def __init__(self, game, player: Character):
         self.player = player
-        self.available_actions = [MainAction(player),
-                                  MainAction(player),
-                                  SideAction(player)]
-        self.turn_counter += 1
-        print(f'turn number {self.turn_counter}: {player.name}')
+        self.available_actions = [Action(player)]
+        game.turn_counter += 1
+        print(f'Ход {game.turn_counter}\n'
+              f'Игрок: {player.name}')
 
-    # def choose_action(self, marker: ActionMarker):
-    #     for action in self.available_actions:
-    #         if action.MARKER == marker:
-    #             action.use_action()
+    def process(self, game):
+        while self.available_actions:
+            print(f'Доступные действия: {self.available_actions}')
+            action_data = input_action_data(game)
+            action = self.choose_action(action_data)
+            action.use(action_data['goal'])
+
+    def choose_action(self, action_data):
+        action = self.available_actions[action_data['action_num']]
+        self.available_actions.remove(action)
+        if not action.type:
+            action.type = action_data['action_type']
+        action.goal = action_data['goal']
+        return action

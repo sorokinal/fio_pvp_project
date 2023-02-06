@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=too-few-public-methods
+
 from characteristics.dexterity import Dexterity
 from characteristics.intelligence import Intelligence
 from characteristics.strength import Strength
-from characteristics.wisdom import Wisdom
+# from characteristics.wisdom import Wisdom
 
 
 class Character:
@@ -15,9 +16,11 @@ class Character:
     dexterity: Dexterity = None
     intelligence: Intelligence = None
     turn: int = 1
-    wisdom: Wisdom = None
+    # wisdom: Wisdom = None
     # spirit: Spirit = None
     # charisma: Charisma = None
+    damage: int = 10
+    input_attacks = []
 
     def __init__(self, start_data: dict):
         self.turn = start_data['turn']

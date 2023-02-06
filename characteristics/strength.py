@@ -3,6 +3,7 @@ from characteristics.characteristic import Characteristic
 
 
 class Strength(Characteristic):
+    NAME = 'Сила'
     BASE_SKILLS:  dict = {
         1: 'lightning_strike',
         2: 'counter_strike',

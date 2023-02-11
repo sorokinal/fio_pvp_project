@@ -21,6 +21,8 @@ class Character:
     # charisma: Charisma = None
     damage: int = 10
     input_attacks = []
+    incoming_actions = []
+    outcoming_actions = []
 
     def __init__(self, start_data: dict):
         self.turn = start_data['turn']

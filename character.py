@@ -9,7 +9,8 @@ from characteristics.strength import Strength
 
 class Character:
     name: str = ''
-    hits: int = 0
+    current_hits: int = 0
+    max_hits: int = 0
     determination: int = 0
     constitution: int = 0
     strength: Strength = None
@@ -27,7 +28,8 @@ class Character:
     def __init__(self, start_data: dict):
         self.turn = start_data['turn']
         self.name = start_data['name']
-        self.hits = start_data['constitution'] * 10
+        self.max_hits = start_data['constitution'] * 10
+        self.current_hits = self.max_hits
         self.constitution = start_data['constitution']
         self.strength = Strength(start_data['strength'])
         self.dexterity = Dexterity(start_data['dexterity'])

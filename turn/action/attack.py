@@ -20,4 +20,4 @@ class Attack:
         goal.input_attacks.append(self)
 
     def apply_attack(self, character: Character):
-        character.hits = character.hits - self.damage
+        character.hits = character.current_hits - self.damage

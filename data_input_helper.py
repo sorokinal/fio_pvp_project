@@ -12,7 +12,7 @@ def input_action_data(game):
 
     """Gets action´s Goal"""
     goal = input("Цель: ")
-    if not game.is_player_with_name_exists(goal):
+    while not game.is_player_with_name_exists(goal):
         print(f'Игрока с именем {goal} не существует')
         goal = input('Цель: ')
     goal = game.get_player_by_name(goal)
@@ -27,5 +27,4 @@ def input_action_data(game):
 def incorrect_type(tipe):
     for types in ActionType:
         if tipe == types:
-            print('ok')
             return False

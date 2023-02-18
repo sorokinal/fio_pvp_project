@@ -32,6 +32,8 @@ class Turn:
         print()
         """TODO: blocking"""
 
+        self.player.incoming_actions.clear()
+        """TODO: Make each cahracter has it´s own incoming_actions array (now somehow it´s common)"""
 
         """Hits"""
         print(f'{self.player.name}'

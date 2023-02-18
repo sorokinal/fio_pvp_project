@@ -15,4 +15,5 @@ class Attack:
         goal.incoming_actions.append(self)
 
     def apply_attack(self, character: Character):
+
         character.current_hits = character.current_hits - self.damage

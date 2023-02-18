@@ -6,12 +6,14 @@ from turn.action.attack import Attack
 
 
 class Action:
+    name: str = 'Main Action'
     type: ActionType = None
     player: Character = None
     goal: Character = None
 
     def __init__(self, player):
         self.player = player
+        # self.name = names
 
     def set_action_type(self, action_type: ActionType):
         self.type = action_type

@@ -6,6 +6,7 @@ from turn.action.attack import Attack
 
 
 class Action:
+    name: str = 'Main Action'
     type: ActionType = None
     player: Character = None
     goal: Character = None

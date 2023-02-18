@@ -10,4 +10,4 @@ if __name__ == '__main__':
     game = Game(players_data_path_list=[players_folder_path+'draft.json',
                                         players_folder_path+'montgomery.json'])
     game.process()
-    print('The battle is over.')
+    print('\The battle is over.')

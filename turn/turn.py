@@ -22,17 +22,21 @@ class Turn:
               f'Player: {player.name}\n'
               f'______________')
 
+        """Incoming actions"""
+        print('Incoming actions: ', end='')
+        for inc_act in self.player.incoming_actions:
+            if self.player.incoming_actions.index(inc_act) != len(self.player.incoming_actions) - 1:
+                print(inc_act.name, end=', ')
+            else:
+                print(inc_act.name, end='')
+        print()
+        """TODO: blocking"""
+
+
         """Hits"""
         print(f'{self.player.name}'
               f'´s Hits: {str(self.player.current_hits)}'
               f'/ {str(self.player.max_hits)}')
-
-        """Incoming actions"""
-        print('Incoming actions: ', end='')
-        for inc_act in self.player.incoming_actions:
-            print(inc_act.name, end=', ')
-        print()
-        """TODO: blocking"""
 
     def process(self, game):
         """Available actions"""

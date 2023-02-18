@@ -54,7 +54,7 @@ class Game:
     def kick_death_players(self):
         """Kicks dead people"""
         for pers in self.players:
-            if pers.hits <= 0:
+            if pers.current_hits <= 0:
                 print('\n' + pers.name + '´s Hits are below zero. ' + pers.name + ' is dead.\n')
                 self.players.remove(pers)
 

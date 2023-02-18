@@ -1,13 +1,14 @@
+from turn.action.action_type import ActionType
+
+
 def input_action_data(game):
     """Gets action´s position"""
     # action_num = input("Номер действия: ")
 
     """Gets action´s Type"""
-    action_type: str = '1'
-    while action_type != '0':
+    action_type = input("Тип Действия (A, S, D): ")
+    while incorrect_type(action_type):
         action_type = input("Тип Действия (A, S, D): ")
-        if action_type == 'A':
-            break
 
     """Gets action´s Goal"""
     goal = input("Цель: ")
@@ -18,7 +19,13 @@ def input_action_data(game):
 
     """Returns parameters that have been set back to action_data(Turn)"""
     return {
-        # "action_num": int(action_num),
         "action_type": action_type,
         "goal": goal
     }
+
+
+def incorrect_type(tipe):
+    for types in ActionType:
+        if tipe == types:
+            print('ok')
+            return False

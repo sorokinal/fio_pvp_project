@@ -38,28 +38,24 @@ class Game:
                 self.kick_death_players()
 
     def is_player_with_name_exists(self, name: str):
-        """Checking player name for Action´s goal"""
         for player in self.players:
             if player.name == name:
                 return True
         return False
 
     def get_player_by_name(self, name: str):
-        """Choosing player by his name for Action´s goal"""
         for player in self.players:
             if player.name == name:
                 return player
         return None
 
     def kick_death_players(self):
-        """Kicks dead people"""
         for pers in self.players:
             if pers.current_hits <= 0:
                 print('\n' + pers.name + '´s Hits are below zero. ' + pers.name + ' is dead.\n')
                 self.players.remove(pers)
 
     def check_for_winner(self):
-        """WIN"""
         if len(self.players) == 1:
             print(f'{self.players[0].name} WINS!!!')
             return True

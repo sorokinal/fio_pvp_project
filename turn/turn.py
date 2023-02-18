@@ -11,6 +11,7 @@ class Turn:
     available_actions: List[Action]
 
     def __init__(self, game, player: Character):
+
         self.player = player
         self.available_actions = [Action(player),
                                   Action(player),
@@ -30,10 +31,12 @@ class Turn:
             else:
                 print(inc_act.name, end='')
         print()
+
         """TODO: blocking"""
 
         self.player.incoming_actions.clear()
-        """TODO: Make each cahracter has it´s own incoming_actions array (now somehow it´s common)"""
+
+        """TODO: Make each character has it´s own incoming_actions array (now somehow it´s common)"""
 
         """Hits"""
         print(f'{self.player.name}'
@@ -41,8 +44,7 @@ class Turn:
               f'/ {str(self.player.max_hits)}')
 
     def process(self, game):
-        """Available actions"""
-        # self.available_actions[0].name = 'Attack'
+        """Shows available actions, asks for parameters, create action and then use it"""
         print(f'Available actions: ', end='')
         for act in self.available_actions:
             if self.available_actions.index(act) != len(self.available_actions) - 1:
@@ -50,16 +52,12 @@ class Turn:
             else:
                 print(act.name)
 
-        """Uses actions"""
         while self.available_actions:
-            """Data_input_helper gets players from game and asks for action parameters"""
             action_data = input_action_data(game)
-            """Creates action with parameters from action_data"""
-            action = self.choose_action(action_data)
+            action = self.define_action(action_data)
             action.use(action_data['goal'])
 
-    def choose_action(self, action_data):
-        # action = self.available_actions[action_data['action_num']]
+    def define_action(self, action_data):
         for action in self.available_actions:
             self.available_actions.remove(action)
             if not action.type:

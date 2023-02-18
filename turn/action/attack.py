@@ -6,7 +6,7 @@ class Attack:
     name = 'Attack'
 
     def __init__(self, character: Character, goal: Character):
-        """Takes character´s damage as base damage"""
+        """Sends Attack to incoming_actions and then applies damage"""
         self.damage = character.damage
         self.use_attack(goal)
         self.apply_attack(goal)

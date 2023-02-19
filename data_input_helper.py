@@ -23,4 +23,6 @@ def input_action_data(game):
 def incorrect_type(tipe):
     for types in ActionType:
         if tipe == types:
-            return False
+            print('ok')
+            return True
+    return False

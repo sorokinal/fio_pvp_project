@@ -2,23 +2,23 @@
 # # pylint: disable=unused-argument
 #
 #
-# from characteristics.characteristic import Characteristic
-#
-#
-# class Wisdom(Characteristic):
-#     NAME = 'Мудрость'
-#     BASE_SKILLS: dict = {
-#         1: 'magic_cuts',
-#         2: 'magic_disease',
-#         3: 'enchantment',
-#         4: 'enchanted_barrier',
-#         5: 'charms_of_bane'
-#     }
-#
-#     enchantment: int = 0
-#
-#     def update_enchantment(self, items: int):
-#         self.enchantment += items
+from characteristics.characteristic import Characteristic
+
+
+class Wisdom(Characteristic):
+    NAME = 'Мудрость'
+    BASE_SKILLS: dict = {
+        1: 'magic_cuts',
+        2: 'magic_disease',
+        3: 'enchantment',
+        4: 'enchanted_barrier',
+        5: 'charms_of_bane'
+    }
+
+    enchantment: int = 0
+
+    def update_enchantment(self, items: int):
+        self.enchantment += items
 #
 #     # def magic_cuts(self, character: Character, goal: Character):
 #     #     """Волшебные порезы (М1) - Атаки по Цели усиливаются на 1/2 Мод. Мудрости до конца боя, даёт 1 Зачарование

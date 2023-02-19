@@ -6,3 +6,4 @@ class ActionType(Enum):
     ATTACK = 'A'
     SKILL = 'S'
     DETERMINATION = 'D'
+    BLOCK = 'B'

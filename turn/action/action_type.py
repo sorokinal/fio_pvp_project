@@ -3,6 +3,7 @@ from enum import Enum
 
 
 class ActionType(Enum):
-    ATTACK = 'атака'
-    SKILL = 'умение'
-    DETERMINATION = 'решимость'
+    ATTACK = 'A'
+    SKILL = 'S'
+    DETERMINATION = 'D'
+    BLOCK = 'B'

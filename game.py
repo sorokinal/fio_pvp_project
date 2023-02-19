@@ -3,19 +3,29 @@ import json
 from typing import List
 from character import Character
 from turn.turn import Turn
+from turn.action.action import Action
+
+
+def grant_block(player: Character):
+    action = Action(player)
+    action.name = 'Block'
+    action.type = 'B'
+    player.skills.append(action)
 
 
 class Game:
     players: List[Character] = []
-    turn_counter: int = 0
+    turn_counter: int = 1
     action_number: int = 3
 
     def __init__(self, players_data_path_list: []):
         """Announce the fight"""
         print("Hi, Mthrfckers! Let's start the game!\n")
         self.add_players(players_data_path_list)
-        print("Today´s challengers: " + (self.players[0]).name + ' againts '+(self.players[1]).name)
-
+        print("Today´s challengers: " + (self.players[0]).name + ' againts ' + (self.players[1]).name)
+        for player in self.players:
+            grant_block(player)
+            print(player.name + ' ' + player.skills[0].name)
 
     def add_players(self, players_data_path_list: []):
         """Loads data from files and create players

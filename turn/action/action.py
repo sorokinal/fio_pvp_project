@@ -11,18 +11,24 @@ class Action:
     player: Character = None
     goal: Character = None
 
-    def __init__(self, player):
+    def __init__(self, player: Character):
         self.player = player
-        # self.name = names
 
     def set_action_type(self, action_type: ActionType):
         self.type = action_type
 
-    def use(self, goal: Character = None):
+    def set_action_goal(self, goal: Character):
+        self.goal = goal
+
+    def use(self):
+        self.player.available_actions.remove(self)
+        self.goal.incoming_actions.append(self.switch_action())
+
+    def switch_action(self):
         if self.type == ActionType.ATTACK.value:
-            return Attack(character=self.player, goal=goal)
-        return None
+            return Attack(player=self.player, goal=self.goal)
         # if self.type == ActionType.DETERMINATION:
         #     return Determination()
         # if self.type == ActionType.SKILL:
         #     return Skill()
+        return None

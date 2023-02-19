@@ -14,7 +14,7 @@ def answer_check(item: str):
         elif answer == 'N':
             return False
         else:
-            is_blocking = input("Didn´t get the answer, repeat it. Yes(Y)/No(N)")
+            item = input("Didn´t get the answer, repeat it. Yes(Y)/No(N)")
 
 
 class Turn:
